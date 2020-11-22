@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mv_alarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Alarm_T.class);
+                Intent intent = new Intent(MainActivity.this, AlarmActivity.class);
                 startActivity(intent);
             } // 알람 버튼을 클릭했을 때 알람 페이지 클래스로 이동함
         });
