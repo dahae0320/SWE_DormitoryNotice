@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -42,6 +43,21 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);
         noticeListView.setAdapter(adapter);
+
+        /*ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });*/
+
+
+
 
         // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
         mv_alarm = findViewById(R.id.gotoalarm);
