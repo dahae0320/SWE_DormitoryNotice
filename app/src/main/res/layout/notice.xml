@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="나동빈"
+            android:text="강민규"
             android:layout_gravity="center"
             android:padding = "3dp"
             android:layout_marginLeft="8dp"
