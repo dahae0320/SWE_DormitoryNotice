@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "608033267223",
+    "firebase_url": "https://gnudormitorynotice.firebaseio.com",
+    "project_id": "gnudormitorynotice",
+    "storage_bucket": "gnudormitorynotice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608033267223:android:82ab3d1b4cc2fc722b4652",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608033267223-2lt6c3c21hpgcu6efn42ceoh9g1jj1rb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "91a4e4219aaf0df66c696408418fb175f802aff1"
+          }
+        },
+        {
+          "client_id": "608033267223-fj8na0mg05v9f99drmlpk6cg6d0li33q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuLVQZLzsVJUTxsjwjL0Aa9v9x61wLDew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608033267223-fj8na0mg05v9f99drmlpk6cg6d0li33q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
