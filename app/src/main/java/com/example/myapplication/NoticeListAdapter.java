@@ -6,8 +6,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
 public class NoticeListAdapter extends BaseAdapter {
 
     private Context context;
@@ -17,6 +18,7 @@ public class NoticeListAdapter extends BaseAdapter {
         this.context = context;
         this.noticeList = noticeList;
     }
+    
 
     @Override
     public int getCount() {

@@ -15,6 +15,7 @@
         android:background = "#6AA84F">
 
         <Button
+            android:id="@+id/gotoalarm"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

@@ -1,8 +1,12 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.jsoup.Jsoup;
@@ -17,12 +21,13 @@ public class MainActivity extends AppCompatActivity {
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<Notice> noticeList;
+    Button mv_alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         noticeListView = (ListView) findViewById(R.id.noticeListView);
         noticeList = new ArrayList<Notice>();
         noticeList.add(new Notice(" 2020.2학기 중 생활관실 수시점검 실시 안내","주권희","2020-10-21"));
@@ -35,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);
         noticeListView.setAdapter(adapter);
+
+        // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
+        mv_alarm = findViewById(R.id.gotoalarm);
+
+        mv_alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Alarm_T.class);
+                startActivity(intent);
+            } // 알람 버튼을 클릭했을 때 알람 페이지 클래스로 이동함
+        });
+
+
 
 
     }
