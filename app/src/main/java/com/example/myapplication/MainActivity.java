@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.jsoup.Jsoup;
@@ -44,20 +45,12 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);
         noticeListView.setAdapter(adapter);
 
-        /*ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        noticeListView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //해당 리스트 클릭 시 이벤트
+                //다음 페이지로 넘어가지 않음. (추후 추가 예정)
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
-
-
+        });
 
         // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
         mv_alarm = findViewById(R.id.gotoalarm);
@@ -117,4 +110,3 @@ public class MainActivity extends AppCompatActivity {
 //        textView.setText(title);
 //        progressDialog.dismiss();
 //    }
-}
