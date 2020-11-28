@@ -42,16 +42,15 @@ public class MainActivity extends AppCompatActivity {
         noticeList.add(new Notice(" (중대본)추석 연휴 생활방역 수칙 ","김경영","2020-09-21"));
         noticeList.add(new Notice(" 외박신고서 작성 안내 ","학생생활관(가좌) 관리자","2020-09-18"));
 
-
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);
         noticeListView.setAdapter(adapter);
-
-        noticeListView.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //해당 리스트 클릭 시 이벤트
-                //다음 페이지로 넘어가지 않음. (추후 추가 예정)
-            }
-        });
+//
+//        noticeListView.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                //해당 리스트 클릭 시 이벤트
+//                //다음 페이지로 넘어가지 않음. (추후 추가 예정)
+//            }
+//        });// 사용 불가능 에러 발생 -> 에러는 listview에 onclick을 작성했기 때문에 났던 에러이다. listview는 onitemclick을 이용하도록하자
 
         // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
         mv_alarm = findViewById(R.id.gotoalarm);
