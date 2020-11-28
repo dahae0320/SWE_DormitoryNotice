@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<Notice> noticeList;
+    Button btn_search;
     Button mv_alarm;
 
     @Override
@@ -54,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
             } // 알람 버튼을 클릭했을 때 알람 페이지 클래스로 이동함
         });
 
+        // 검색 버튼으로 이동
+        btn_search = findViewById(R.id.btnSearch);
 
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intent2);
+            } // 검색 버튼을 클릭했을 때 검색 페이지 클래스로 이동함
+        });
 
 
     }
