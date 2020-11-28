@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import org.jsoup.Jsoup;
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);
         noticeListView.setAdapter(adapter);
 
+        noticeListView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                //해당 리스트 클릭 시 이벤트
+                //다음 페이지로 넘어가지 않음. (추후 추가 예정)
+            }
+        });
+
         // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
         mv_alarm = findViewById(R.id.gotoalarm);
 
@@ -69,3 +78,45 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
+//private class Content extends AsyncTask<Void, Void, Void> {
+//
+//    @Override
+//    protected void onPreExecute() {
+//        super.onPreExecute();
+//        progressDialog = new ProgressDialog(MainActivity.this);
+//        progressDialog.show();
+//    }
+//
+//    @Override
+//    protected Void doInBackground(Void... voids) {
+//        try {
+//            //Connect to the website
+//            Document document = Jsoup.connect(url).get();
+//
+//            //Get the logo source of the website
+//            Element img = document.select("img").first();
+//            // Locate the src attribute
+//            String imgSrc = img.absUrl("src");
+//            // Download image from URL
+//            InputStream input = new java.net.URL(imgSrc).openStream();
+//            // Decode Bitmap
+//            bitmap = BitmapFactory.decodeStream(input);
+//
+//            //Get the title of the website
+//            title = document.title();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+//
+//    @Override
+//    protected void onPostExecute(Void aVoid) {
+//        super.onPostExecute(aVoid);
+//
+//        imageView.setImageBitmap(bitmap);
+//        textView.setText(title);
+//        progressDialog.dismiss();
+//    }
