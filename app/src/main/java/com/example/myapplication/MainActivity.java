@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     private ListView noticeListView;
     private NoticeListAdapter adapter;
     private List<Notice> noticeList;
@@ -53,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 //        });// 사용 불가능 에러 발생 -> 에러는 listview에 onclick을 작성했기 때문에 났던 에러이다. listview는 onitemclick을 이용하도록하자
 
         // 알람 페이지로 이동하는 버튼의 아이디 값을 통해 접근
+
         mv_alarm = findViewById(R.id.gotoalarm);
 
         mv_alarm.setOnClickListener(new View.OnClickListener() {
@@ -74,48 +74,5 @@ public class MainActivity extends AppCompatActivity {
             } // 검색 버튼을 클릭했을 때 검색 페이지 클래스로 이동함
         });
 
-
     }
 }
-
-//private class Content extends AsyncTask<Void, Void, Void> {
-//
-//    @Override
-//    protected void onPreExecute() {
-//        super.onPreExecute();
-//        progressDialog = new ProgressDialog(MainActivity.this);
-//        progressDialog.show();
-//    }
-//
-//    @Override
-//    protected Void doInBackground(Void... voids) {
-//        try {
-//            //Connect to the website
-//            Document document = Jsoup.connect(url).get();
-//
-//            //Get the logo source of the website
-//            Element img = document.select("img").first();
-//            // Locate the src attribute
-//            String imgSrc = img.absUrl("src");
-//            // Download image from URL
-//            InputStream input = new java.net.URL(imgSrc).openStream();
-//            // Decode Bitmap
-//            bitmap = BitmapFactory.decodeStream(input);
-//
-//            //Get the title of the website
-//            title = document.title();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    protected void onPostExecute(Void aVoid) {
-//        super.onPostExecute(aVoid);
-//
-//        imageView.setImageBitmap(bitmap);
-//        textView.setText(title);
-//        progressDialog.dismiss();
-//    }

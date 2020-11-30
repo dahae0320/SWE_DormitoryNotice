@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/noticeText"
+        android:id="@+id/noticeDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -43,7 +43,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/noticeText"
+            android:id="@+id/textDetail"
             android:layout_width="match_parent"
             android:layout_height="467dp"
             android:layout_marginLeft="10dp"
