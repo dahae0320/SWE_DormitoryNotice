@@ -39,4 +39,6 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
+    //firbase 푸시알람 라이브러리
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }

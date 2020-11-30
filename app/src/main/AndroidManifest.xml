@@ -5,10 +5,9 @@
     
     <!-- 인터넷 사용 권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
-=======
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
 
->>>>>>> 267513876a3692aa216937a5e7de7cbe270ed739
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <!--- 안드로이드 8.0 이상 푸시 처리 추가 코드-->
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name ="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
         <activity android:name=".AlarmActivity"/>
         <activity android:name=".DetailActivity"/>
         <activity android:name=".SearchActivity"/>
