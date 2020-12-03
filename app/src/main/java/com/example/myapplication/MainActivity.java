@@ -52,22 +52,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if(!task.isSuccessful()) {
-                            Log.w("FCM Log", "getInstanceId failed",task.getException());
-                            return;
-                        }
-                        String token = task.getResult().getToken();
-                        Log.d("FCM Log","FCM 토큰: "+token);
-                        Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
         noticeListView = (ListView) findViewById(R.id.noticeListView);
         noticeList = new ArrayList<Notice>();
         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
