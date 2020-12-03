@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,32 +27,12 @@ public class SearchActivity extends AppCompatActivity {
     Button btn_search;
     Button btn_home;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        noticeListView = (ListView) findViewById(R.id.noticeListView);
-        noticeList = new ArrayList<Notice>();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("1000");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String title = dataSnapshot.child("title").getValue().toString();
-                String author= dataSnapshot.child("author").getValue().toString();
-                String date= dataSnapshot.child("date").getValue().toString();
-
-                noticeList.add(new Notice(title, author,date));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-            }
-        });
-
-        adapter = new NoticeListAdapter(getApplicationContext(),noticeList);  // 임시
-        noticeListView.setAdapter(adapter);
 
           // 임시
         //noticeListView = (ListView) findViewById(R.id.noticeListView);  // 임시
@@ -85,5 +66,6 @@ public class SearchActivity extends AppCompatActivity {
         });
 
     }
+
 }
 

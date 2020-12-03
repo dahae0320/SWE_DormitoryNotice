@@ -5,6 +5,7 @@ public class Notice {
     String author; // name
     String date;
     String description; // text
+    String index;
 
     public Notice(String title, String author, String date) {
         this.title = title;
@@ -12,12 +13,20 @@ public class Notice {
         this.date = date;
 
     }
-    public Notice(String title, String author, String date,String description) {
+    public Notice(String title, String author, String date,String index) {
+        this.title = title;
+        this.author = author;
+        this.date = date;
+        this.index=index;
+    }
+    public Notice(String title, String author, String date,String index,String description) {
         this.title = title;
         this.author = author;
         this.date = date;
         this.description = description;
+        this.index=index;
     }
+
 
 
     public String getTitle() {
@@ -32,7 +41,7 @@ public class Notice {
         return author;
     }
 
-    public void setName(String author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -43,6 +52,12 @@ public class Notice {
     public void setDate(String date) {
         this.date = date;
     }
+
     public String getDescription() { return description;}
 
+    public void setDescription(String description) {this.description=description;}
+
+    public String getIndex() {return index;}
+
+    public void setIndex(String index) {this.index= index;}
 }
