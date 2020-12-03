@@ -30,7 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/colorPrimary"
-        android:drawableLeft="@drawable/ic_baseline_sms_24"
         android:padding="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
@@ -51,6 +50,7 @@
             android:layout_marginRight="10dp"
             android:background="@color/colorPrimary"
             android:padding="10dp"
+            android:scrollbars="vertical"
             android:text="공지사항 내용"
             android:textColor="#ffffff"
             android:textStyle="bold" />

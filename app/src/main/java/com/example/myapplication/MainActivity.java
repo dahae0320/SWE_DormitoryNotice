@@ -75,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 noticeList.clear();
-                for(int i = 1080; i>=1070; i--) {
-                    title = dataSnapshot.child(getIdx(i)).child("title").getValue().toString();
-                    author = dataSnapshot.child(getIdx(i)).child("author").getValue().toString();
-                    date = dataSnapshot.child(getIdx(i)).child("date").getValue().toString();
-                    idx = dataSnapshot.child(getIdx(i)).child("notice_num").getValue().toString();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    title = dataSnapshot.child(snapshot.getKey()).child("title").getValue().toString();
+                    author = dataSnapshot.child(snapshot.getKey()).child("author").getValue().toString();
+                    date = dataSnapshot.child(snapshot.getKey()).child("date").getValue().toString();
+                    idx = dataSnapshot.child(snapshot.getKey()).child("notice_num").getValue().toString();
                     noticeList.add(new Notice(title, author, date,idx));
                 }
                 adapter.notifyDataSetChanged();
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra("idx",position);
+                intent.putExtra("idx",noticeList.get(position).index.toString());
                 startActivity(intent);
             }
         });

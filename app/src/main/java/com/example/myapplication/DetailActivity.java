@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,15 +34,17 @@ public class DetailActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Intent intent = getIntent();
+                String data = intent.getStringExtra("idx");
+                title = dataSnapshot.child(data).child("title").getValue().toString();
+                description = dataSnapshot.child(data).child("description").getValue().toString();
 
-                for(int i = 1080; i>1070; i--) {
-                    title = dataSnapshot.child(getIdx(i)).child("title").getValue().toString();
-                    author = dataSnapshot.child(getIdx(i)).child("author").getValue().toString();
-                    date = dataSnapshot.child(getIdx(i)).child("date").getValue().toString();
-                    description = dataSnapshot.child(getIdx(i)).child("description").getValue().toString();
+                TextView noticeDetail = (TextView)findViewById(R.id.noticeDetail);
+                TextView textDetail = (TextView)findViewById(R.id.textDetail);
+                textDetail.setMovementMethod(new ScrollingMovementMethod());
+                noticeDetail.setText(title);
+                textDetail.setText(description);
 
-
-                }
             }
 
             @Override

@@ -45,14 +45,14 @@
             android:id="@+id/nameText"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/dateText"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:padding="3dp"
             android:text="2017-01-01"
-            android:layout_gravity="center"
-            android:padding = "3dp"
             android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
-            android:id="@+id/dateText"/>
+            android:textColorHint="#ffffff" />
 
     </LinearLayout>
 </LinearLayout>
