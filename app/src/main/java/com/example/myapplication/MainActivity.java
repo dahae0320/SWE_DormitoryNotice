@@ -30,6 +30,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     idx = dataSnapshot.child(snapshot.getKey()).child("notice_num").getValue().toString();
                     noticeList.add(new Notice(title, author, date,idx));
                 }
+                Collections.reverse(noticeList);
                 adapter.notifyDataSetChanged();
             }
 
