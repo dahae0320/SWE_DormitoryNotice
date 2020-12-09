@@ -78,6 +78,14 @@ public class SearchActivity extends AppCompatActivity {
         });
 
         adapter = new NoticeListAdapter(getApplicationContext(),noticeList);  // 임시
+        noticeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SearchActivity.this, DetailActivity.class);
+                intent.putExtra("idx",noticeList.get(position).index.toString());
+                startActivity(intent);
+            }
+        });
         noticeListView.setAdapter(adapter);
           // 임시
         //noticeListView = (ListView) findViewById(R.id.noticeListView);  // 임시
