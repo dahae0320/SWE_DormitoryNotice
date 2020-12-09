@@ -22,7 +22,6 @@ public class DetailActivity extends AppCompatActivity {
     String description;
     String title;
     String author;
-    String date;
 
 
     @Override

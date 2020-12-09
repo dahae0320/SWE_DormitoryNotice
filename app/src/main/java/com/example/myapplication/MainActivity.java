@@ -2,15 +2,19 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +33,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,21 +43,18 @@ public class MainActivity extends AppCompatActivity {
     private List<Notice> noticeList;
 
     Button btn_search;
-    Button btn_refresh;
     Button mv_alarm;
     String title;
     String author;
     String date;
     String idx;
-    String notice_num;
+
 
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     idx = dataSnapshot.child(snapshot.getKey()).child("notice_num").getValue().toString();
                     noticeList.add(new Notice(title, author, date,idx));
                 }
+                Collections.reverse(noticeList);
                 adapter.notifyDataSetChanged();
             }
 
@@ -116,12 +120,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // 검색 버튼으로 이동
-        btn_search = findViewById(R.id.btnSearch);
 
+
+        btn_search = findViewById(R.id.btnSearch);
+        final EditText text_search = (EditText)findViewById(R.id.idSearchText);
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String text = text_search.getText().toString();
                 Intent intent2 = new Intent(MainActivity.this, SearchActivity.class);
+                intent2.putExtra("text",text);
                 startActivity(intent2);
             } // 검색 버튼을 클릭했을 때 검색 페이지 클래스로 이동함
         });
