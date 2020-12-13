@@ -19,9 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 public class DetailActivity extends AppCompatActivity {
 
     Button btn_home;
-    String description;
-    String title;
-    String author;
+    String noticeDescription;
+    String noticeTitle;
+    String noticeAuthor;
+    String noticeDate;
+    String noticeNumber;
 
 
     @Override
@@ -35,14 +37,23 @@ public class DetailActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Intent intent = getIntent();
                 String data = intent.getStringExtra("idx");
-                title = dataSnapshot.child(data).child("title").getValue().toString();
-                description = dataSnapshot.child(data).child("description").getValue().toString();
+                noticeTitle = dataSnapshot.child(data).child("title").getValue().toString();
+                noticeDescription = dataSnapshot.child(data).child("description").getValue().toString();
+                noticeDate = dataSnapshot.child(data).child("date").getValue().toString();
+                noticeNumber = dataSnapshot.child(data).child("notice_num").getValue().toString();
+                noticeAuthor = dataSnapshot.child(data).child("author").getValue().toString();
 
                 TextView noticeDetail = (TextView)findViewById(R.id.noticeDetail);
                 TextView textDetail = (TextView)findViewById(R.id.textDetail);
+                TextView idxDetail = (TextView)findViewById(R.id.noticeIdx);
+                TextView authorDetail = (TextView)findViewById(R.id.nameText);
+                TextView dateDetail = (TextView)findViewById(R.id.dateText);
+                noticeDetail.setText(noticeTitle);
+                textDetail.setText(noticeDescription);
+                idxDetail.setText(noticeNumber);
+                authorDetail.setText(noticeAuthor);
+                dateDetail.setText(noticeDate);
                 textDetail.setMovementMethod(new ScrollingMovementMethod());
-                noticeDetail.setText(title);
-                textDetail.setText(description);
 
             }
 
